@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Mountain Province Tourism</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body class="auth-page" id="adminBody">
+    <div class="auth-container" id="loginContainer">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h1>Admin Login</h1>
+                <p>Sign in to manage content</p>
+            </div>
+
+            <form id="adminLoginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="adminUsername">Username</label>
+                    <input type="text" id="adminUsername" name="username" placeholder="Enter username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" name="password" placeholder="Enter password" required>
+                </div>
+
+                <button type="submit" class="btn-auth">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="adminPanel" style="display: none;">
+        <header class="header-bg py-4 mb-4">
+            <div class="container position-relative text-center">
+                <h1 class="display-4">Admin Panel</h1>
+                <p class="lead">Manage Tourist Spots</p>
+                <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="mb-4">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSpotModal">Add New Tourist Spot</button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="spotsTableBody">
+                        <!-- Spots will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <footer class="text-center py-4 mt-4 bg-light">
+            <small>&copy; 2024 Mountain Province Tourism. All rights reserved.</small>
+        </footer>
+    </div>
+
+    <!-- Add Spot Modal -->
+    <div class="modal fade" id="addSpotModal" tabindex="-1" aria-labelledby="addSpotModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addSpotModalLabel">Add New Tourist Spot</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addSpotForm">
+                        <div class="mb-3">
+                            <label for="spotName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="spotName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="spotLocation" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="spotLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="spotDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="spotDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="spotImage" class="form-label">Image URL</label>
+                            <input type="url" class="form-control" id="spotImage" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Spot</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Spot Modal -->
+    <div class="modal fade" id="editSpotModal" tabindex="-1" aria-labelledby="editSpotModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editSpotModalLabel">Edit Tourist Spot</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editSpotForm">
+                        <input type="hidden" id="editSpotId">
+                        <div class="mb-3">
+                            <label for="editSpotName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="editSpotName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editSpotLocation" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="editSpotLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editSpotDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="editSpotDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editSpotImage" class="form-label">Image URL</label>
+                            <input type="url" class="form-control" id="editSpotImage" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Spot</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple admin credentials (in a real app, this would be server-side)
+        const adminUsername = 'admin';
+        const adminPassword = 'password';
+
+        // Simulated data storage (use localStorage for persistence)
+        let touristSpots = JSON.parse(localStorage.getItem('touristSpots')) || [
+            { id: 1, name: 'Hanging Coffins', location: 'Sagada', description: 'Ancient burial practice.', image: 'images/Hanging-Coffins-Sagada.jpg' },
+            { id: 2, name: 'Sumaguing Cave', location: 'Sagada', description: 'Challenging spelunking experience.', image: 'images/sumaguing-cave.jpg' }
+        ];
+
+        // Login form
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (username === adminUsername && password === adminPassword) {
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                document.body.classList.remove('auth-page');
+                renderSpots();
+            } else {
+                alert('Invalid credentials');
+            }
+        });
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'block';
+            document.body.classList.add('auth-page');
+        });
+
+        // Render spots table
+        function renderSpots() {
+            const tbody = document.getElementById('spotsTableBody');
+            tbody.innerHTML = '';
+            touristSpots.forEach(spot => {
+                const row = `
+                    <tr>
+                        <td>${spot.name}</td>
+                        <td>${spot.location}</td>
+                        <td>${spot.description}</td>
+                        <td>
+                            <button class="btn btn-sm btn-warning" onclick="editSpot(${spot.id})">Edit</button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteSpot(${spot.id})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+            localStorage.setItem('touristSpots', JSON.stringify(touristSpots));
+        }
+
+        // Add spot
+        document.getElementById('addSpotForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newSpot = {
+                id: Date.now(),
+                name: document.getElementById('spotName').value,
+                location: document.getElementById('spotLocation').value,
+                description: document.getElementById('spotDescription').value,
+                image: document.getElementById('spotImage').value
+            };
+            touristSpots.push(newSpot);
+            renderSpots();
+            bootstrap.Modal.getInstance(document.getElementById('addSpotModal')).hide();
+            document.getElementById('addSpotForm').reset();
+        });
+
+        // Edit spot
+        function editSpot(id) {
+            const spot = touristSpots.find(s => s.id === id);
+            document.getElementById('editSpotId').value = spot.id;
+            document.getElementById('editSpotName').value = spot.name;
+            document.getElementById('editSpotLocation').value = spot.location;
+            document.getElementById('editSpotDescription').value = spot.description;
+            document.getElementById('editSpotImage').value = spot.image;
+            new bootstrap.Modal(document.getElementById('editSpotModal')).show();
+        }
+
+        // Update spot
+        document.getElementById('editSpotForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = parseInt(document.getElementById('editSpotId').value);
+            const spot = touristSpots.find(s => s.id === id);
+            spot.name = document.getElementById('editSpotName').value;
+            spot.location = document.getElementById('editSpotLocation').value;
+            spot.description = document.getElementById('editSpotDescription').value;
+            spot.image = document.getElementById('editSpotImage').value;
+            renderSpots();
+            bootstrap.Modal.getInstance(document.getElementById('editSpotModal')).hide();
+        });
+
+        // Delete spot
+        function deleteSpot(id) {
+            if (confirm('Are you sure you want to delete this spot?')) {
+                touristSpots = touristSpots.filter(s => s.id !== id);
+                renderSpots();
+            }
+        }
+    </script>
+</body>
+</html>

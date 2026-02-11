@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <!-- Leaflet CSS -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Province Tourist Spots</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <style>
+       
+        
+    </style>
+</head>
+<body>
+   
+    <header class="header-bg py-4 mb-4">
+    <div class="container position-relative text-center" style="border: 3; border-color: blue">
+        <h1 class="mb-3">Featured Destinations</h1>
+        <!-- Bootstrap Carousel -->
+        <div id="headerCarousel" class="carousel slide mb-4 border" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/Hanging-Coffins-Sagada.jpg" class="d-block w-100" alt="Hanging Coffins Sagada" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Hanging Coffins of Sagada</h5>
+                        <p>Explore the ancient Igorot burial tradition high on the cliffs of Echo Valley.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/barlig rice terraces.jpg" class="d-block w-100" alt="Barlig Rice Terraces" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Barlig Rice Terraces</h5>
+                        <p>Marvel at the stunning stone-walled terraces carved into the mountainside.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/Bontoc museum.jfif" class="d-block w-100" alt="Bontoc Museum" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Bontoc Museum</h5>
+                        <p>Dive into the rich cultural heritage and history of the Bontoc people.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/mt Kalawitan.jpg" class="d-block w-100" alt="Mount Kalawitan" style="height: 400px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Mount Kalawitan</h5>
+                        <p>Conquer the challenging trails and enjoy breathtaking panoramic views.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <h1 class="display-4">Welcome to Mountain Province Tourism</h1>
+        <p class="lead">Discover the breathtaking beauty and rich culture of Mountain Province.</p>
+        <p class="mt-3">Explore ancient rice terraces, sacred caves, majestic mountains, and more.</p>
+        <p>Your journey to the heart of the Cordilleras starts here.</p>
+    </div>
+</header>
+
+    <main class="container">
+
+        <div class="row mb-4">
+    <div class="col-md-6 mb-2">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search tourist spot...">
+    </div>
+    <div class="col-md-6 mb-2">
+        <select id="cityFilter" class="form-select">
+            <option value="all">Municipalities</option>
+            <option value="Sagada">Sagada</option>
+            <option value="Bontoc">Bontoc</option>
+            <option value="Sadanga">Sadanga</option>
+            <option value="Tadian">Tadian</option>
+            <option value="Bauko">Bauko</option>
+            <option value="Barlig">Barlig</option>
+            <!-- Add more cities here -->
+        </select>
+    </div>
+        </div>
+
+        <!-- SAGADA -->
+        <h2>Sagada</h2>
+
+                <!-- Municipality Description -->
+        <div class="municipality-description mt-4 mb-4">
+            <p>Sagada is a picturesque town in Mountain Province known for its stunning landscapes, ancient burial practices, and vibrant indigenous culture. Historically settled by the Kankanaey and Igorot tribes, Sagada has preserved traditional ways of life amidst terraced rice fields and pine forests. Local traditions include intricate weaving, communal farming, and spiritual ceremonies that honor nature and ancestors. The town's history reflects resilience against colonial influences, maintaining cultural integrity through festivals and sustainable agriculture.</p>
+        </div>
+        <section> Sagada Contact information:
+            <br>SAGGAS (+63 995 090 7140) <br>
+             SEGA (+63 968 262 7011) <br>
+              SETGO (+63 919 222 8182)</section> <br>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Hanging Coffins -->
+            <div class="col" data-city="Sagada" data-name="Hanging Coffins">
+                <div class="card h-100">
+                    <img src="images/Hanging-Coffins-Sagada.jpg" class="card-img-top spot-img" alt="Sagada Hanging Coffins">
+                    <div class="card-body">
+                        <h5 class="card-title">Hanging Coffins</h5>
+            <div class="d-flex gap-2">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalHangingCoffins">Details</button>
+            </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="modalHangingCoffins" tabindex="-1" aria-labelledby="modalHangingCoffinsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalHangingCoffinsLabel">Sagada Hanging Coffins</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">            
+        </div>
+                 <div class="modal-body">
+                            <img src="images/Hanging-Coffins-Sagada.jpg" class="img-fluid mb-3" alt="Sumaguing Cave">
+                            <p><strong>Location:</strong> Sagada</p>
+                            <div id="weather-modalHangingCoffins"></div>
+                            <p><strong>Information:</strong> The Hanging Coffins are ancient burial sites featuring coffins placed on cliff faces in Echo Valley. 
+                                Visitors can observe this unique tradition from designated viewing areas. 
+                                A short hike from the town center, it offers stunning views of the valley. Guided tours are available for ₱300 per group.
+                            Best Time (Nov–Feb): Coolest and driest months, providing clear views for trekking.
+Shoulder Season (March–May): Good weather, but warmer and potentially crowded during the Holy Week/summer season.
+Rainy Season (June–October): Not recommended due to frequent rain, limited visibility, and risks of landslides, which can close down hiking trails. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sumaguing Cave -->
+            <div class="col" data-city="Sagada" data-name="Sumaguing Cave">
+                <div class="card h-100">
+                    <img src="images/Sumaguing-Cave-15-768x519.jpg" class="card-img-top spot-img" alt="Sumaguing Cave">
+                    <div class="card-body">
+                        <h5 class="card-title">Sumaguing Cave</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSumaguingCave">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalSumaguingCave" tabindex="-1" aria-labelledby="modalSumaguingCaveLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalSumaguingCaveLabel">Sumaguing Cave</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/sumaguing-cave.jpg" class="img-fluid mb-3" alt="Sumaguing Cave">
+                            <p><strong>Location:</strong> Sagada</p>
+<p><strong>Information:</strong> Sumaguing Cave offers spelunking adventures with rock formations and underground rivers. Guided tours are mandatory. Operating hours: 6:00 AM to 5:00 PM. Registration required at Sagada Tourist Information Center with ₱100 environmental fee. Best time: November to May. Wear quick-dry clothing and sturdy sandals.
+Dry Season (Nov-May): Safest time; minimal rainfall, avoiding dangerous water levels.
+Peak Season (Nov-Feb): Very cold and busy, but ideal for combining with other Sagada attractions.
+Best Time of Day: Early morning (around 7 AM - 8 AM) is recommended to avoid crowds.
+Avoid: The rainy season (July to October), as the cave can become dangerous and may be closed. </p>
+                            
+<section></section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Lumiang Burial Cave -->
+            <div class="col" data-city="Sagada" data-name="Lumiang Burial Cave">
+                <div class="card h-100">
+                    <img src="images/Lumiang CAVE.jpg" class="card-img-top spot-img" alt="Lumiang Burial Cave">
+                    <div class="card-body">
+                        <h5 class="card-title">Lumiang Burial Cave</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLumiangCave">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalLumiangCave" tabindex="-1" aria-labelledby="modalLumiangCaveLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLumiangCaveLabel">Lumiang Burial Cave</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Lumiang CAVE.jpg" class="img-fluid mb-3" alt="Lumiang Burial Cave">
+                            <p><strong>Location:</strong> Sagada</p>
+<p><strong>Information:</strong> Lumiang Burial Cave offers spelunking adventures with cave connections. 
+    Guided tours are mandatory. Operating hours: 6:00 AM to 5:00 PM. 
+    Registration required at Sagada Tourist Information Center with ₱100 environmental fee. 
+    Guide fees start at ₱1,000 for up to 2 people. Wear quick-dry clothing and sturdy sandals.
+Best Time (Dry/Cool): November to February is ideal for experiencing the cold,, often dropping to 4°C, while March to May is warmer.
+Wet Season Risk: June to October brings heavy rain and higher risk of landslides and flash floods, which can cause cave closures.
+Conditions: The cave is accessible year-round, but dry, cool, and clear weather (especially in Feb) provides the best experience, allowing for safer exploration. </p>
+    
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Echo Valley -->
+            <div class="col" data-city="Sagada" data-name="Echo Valley">
+                <div class="card h-100">
+                    <img src="images/Echo valley.jpg" class="card-img-top spot-img" alt="Echo Valley">
+                    <div class="card-body">
+                        <h5 class="card-title">Echo Valley</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEchoValley">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalEchoValley" tabindex="-1" aria-labelledby="modalEchoValleyLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalEchoValleyLabel">Echo Valley</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Echo valley.jpg" class="img-fluid mb-3" alt="Echo Valley">
+                            <p><strong>Location:</strong> Sagada</p>
+                            <p><strong>Information:</strong>
+                           Echo Valley (Sagada) is a scenic tourist spot in Sagada, Mountain Province,
+                            known for its peaceful walking trails, cool mountain air,
+                            and beautiful views of pine trees, rock formations, and surrounding cliffs.
+                             It is often visited as part of a short trek from Sagada town and offers a 
+                             relaxing nature experience, making it a favorite stop for sightseeing, photography,
+                              and quiet exploration. Local guide services are required, with tour fees typically
+                               starting at around ₱500 per group, depending on the route and number of visitors.
+                            Best Time (Nov–Feb): Coldest temperatures, excellent for hiking, with low chance of rain.
+                            Shoulder Season (March–May): Warmest months, but still dry with clear skies,
+                             providing a good escape from Manila's heat.Rainy Season (June–Oct):
+                              Unpredictable weather with high chance of rain and typhoons,
+                               which may cause slippery trails and, in rare cases, attraction closures.  </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bomod-ok Falls -->
+            <div class="col" data-city="Sagada" data-name="Bomod-ok Falls">
+                <div class="card h-100">
+                    <img src="images/Bomod-ok-Falls.webp" class="card-img-top spot-img" alt="Bomod-ok Falls">
+                    <div class="card-body">
+                        <h5 class="card-title">Bomod-ok Falls</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBomodokFalls">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalBomodokFalls" tabindex="-1" aria-labelledby="modalBomodokFallsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBomodokFallsLabel">Bomod-ok Falls</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Bomod-ok-Falls.webp" class="img-fluid mb-3" alt="Bomod-ok Falls">
+                            <p><strong>Location:</strong> Sagada,Aguid-Pide-Fidelisan</p>
+                            <p><strong>Information:</strong>Bomod-ok Falls, also known as the "Big Falls," is Sagada's most spectacular waterfall. Tucked behind the rice terraces of the northern villages, it stands approximately 200 feet tall and is surrounded by sheer rock walls and lush vegetation. </p>
+                        <h2>The Trek & Experience </h2>
+                            <p>The Trail: The hike starts in Barangay Bangaan or Fidelisan. You’ll trek down a series of stone-paved steps that wind through the stunning Fidelisan Rice Terraces, which are often compared to those in Banaue.
+                            Difficulty: Moderate to challenging. The descent takes about 1 to 1.5 hours, but the ascent (the return trip) is a steep climb that can take 1.5 to 2 hours.
+                            The Reward: A massive, ice-cold pool at the base of the falls where you can swim. The spray from the falls is powerful enough to feel like a heavy rain even from several meters away.</p>
+                       <h2> Fees and Logistics (2026)</h2>
+                            <p>Registration: You must present your ₱100 Sagada Environmental Fee receipt.
+                            Guide Fee: ₱500 for a group of up to 5 people.
+                            Village Fee: A separate ₱25–₱30 barangay/cultural fee is usually collected at the jump-off point.
+                            Transportation: A two-way shuttle from Sagada town center to the jump-off point costs approximately ₱650 per van. </p>
+                            <h2>Pro-Tips for Visitors</h2>
+                            <p>Start Early: Aim to begin by 7:00 AM or 8:00 AM to avoid the midday sun during the steep climb back up.
+                            Hydration: Bring plenty of water. There are small sari-sari stores along the trail selling snacks and drinks, but prices are higher due to the remote location.
+                            Footwear: Wear sturdy trekking sandals or shoes. The stone steps can be very slippery when wet.
+                            Weather Check: During the rainy season, the trail can be dangerous, and the falls may turn brown due to silt. Check with the Sagada Tourism Office for daily trail conditions. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pongas Falls -->
+            <div class="col" data-city="Sagada" data-name="Pongas Falls">
+                <div class="card h-100">
+                    <img src="images/Pongas Falls.jpg" class="card-img-top spot-img" alt="Pongas Falls">
+                    <div class="card-body">
+                        <h5 class="card-title">Pongas Falls</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPongasFalls">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalPongasFalls" tabindex="-1" aria-labelledby="modalPongasFallsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalPongasFallsLabel">Pongas Falls</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Pongas Falls.jpg" class="img-fluid mb-3" alt="Pongas Falls">
+                            <p><strong>Location:</strong> Sagada</p>
+                            <p><strong>Information:</strong>Pongas Falls is a beautiful
+                                 natural attraction known for its multi-tiered waterfalls, clear flowing water,
+                                  and serene mountain surroundings. The trek to the falls is moderately challenging,
+                                   passing through forest trails, streams, and rocky paths, making it a rewarding
+                                    destination for hikers and nature enthusiasts.</p>
+                            <h2>The Trek & Experience</h2>
+                            <p>he Path: The trek begins at the Ankileng jump-off point. You will pass through traditional villages, cross a hanging bridge, and walk along irrigation canals and rice terraces.
+                            Difficulty: Moderate to challenging. Unlike the concrete steps of Bomod-ok, Pongas requires scaling boulders and navigating narrow, sometimes slippery footpaths.
+                            The Falls: It features multiple tiers (historically up to seven cascades). The main tiers have a chest-deep natural pool perfect for a refreshing dip. </p>
+                    <h2>Logistics & Fees (2026)</h2> 
+                    <p>Visitors must register at the Sagada Tourist Information Center before heading to the site. 
+                    Guide Fee: ₱600 for a group of 1–10 people.
+                    Shuttle Fee: Approximately ₱650 for a two-way trip from the town center.
+                    Environmental Fee: ₱100 per person (one-time fee for all Sagada sites).
+                    Duration: The hike typically takes 1 to 1.5 hours one way, depending on your pace.</p>  
+                        <h2>Essential Visitor Tips</h2>
+                        <p>Footwear: Wear sturdy trekking sandals or shoes with a good grip; many visitors find it easier to navigate the final rocky sections barefoot for better traction.
+Waterproof Gear: Bring a dry bag for electronics, as the spray from the falls is powerful and you will encounter wet sections on the trail.
+Historical Note: In mid-2024, the falls were temporarily closed due to soil erosion. While currently open for 2026, always verify the status with the local tourism office before departing. </p>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Marlboro Hills -->
+            <div class="col" data-city="Sagada" data-name="Marlboro Hills">
+                <div class="card h-100">
+                    <img src="images/sagada-marlboro-hills.jpg" class="card-img-top spot-img" alt="Marlboro Hills">
+                    <div class="card-body">
+                        <h5 class="card-title">Marlboro Hills (Kamanbaneng Peak)</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMarlboroHills">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalMarlboroHills" tabindex="-1" aria-labelledby="modalMarlboroHillsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMarlboroHillsLabel">Marlboro Hills (Kamanbaneng Peak)</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/sagada-marlboro-hills.jpg" class="img-fluid mb-3" alt="Marlboro Hills">
+                            <p><strong>Location:</strong> Sagada</p>
+                            <p><strong>Information:</strong> Marlboro Hills, also known as Kamanbaneng Peak, is a scenic viewpoint in Sagada offering panoramic views of rice terraces and mountains. The area features rolling hills and is popular for sunrise viewing and photography.</p>
+                            <h2>The Experience</h2>
+                            <p>The Sunrise: Most hikers start the trek at 4:00 AM or 4:30 AM to reach the summit before dawn. As the sun rises, the valley below often fills with thick white clouds, creating an island-like effect for the surrounding peaks.
+The Blue Soil (Tatlong): If you continue the trek for another 1–1.5 hours from the summit, you reach hills with a distinct bluish-green tint caused by high copper sulfate levels in the soil. </p>
+                            <h2>Logistics & Fees (2026)</h2>
+                            <p>Registration: Present your ₱100 Environmental Fee receipt.
+Guide Fees:
+Marlboro Hills Sunrise (Two-way): ₱800 for up to 3 people.
+Marlboro to Blue Soil Traverse: ₱1,600 for up to 3 people (includes the full trek ending at the main road).
+Transportation: A two-way shuttle from the town center to the jump-off point costs approximately ₱650. </p>
+                                <h2>Pro-Tips</h2>
+                                <p>Check the Weather: The "sea of clouds" is most likely to appear after a light rain the night before, followed by a clear morning.
+Breakfast: There are temporary stalls at the summit selling hot lugaw (rice porridge) and mountain coffee for around ₱50–₱100.
+Layer Up: It is extremely cold at the summit before sunrise; bring a jacket and gloves. </p>
+                            <h2>Recommended Attire</h2>
+                            <p>Wear warm layers, waterproof jacket, sturdy hiking boots, gloves, and a hat for early morning cold and variable weather.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Kiltepan Viewpoint -->
+            <div class="col" data-city="Sagada" data-name="Kiltepan Viewpoint">
+                <div class="card h-100">
+                    <img src="images/Kiltepan view point.jpg" class="card-img-top spot-img" alt="Kiltepan Viewpoint">
+                    <div class="card-body">
+                        <h5 class="card-title">Kiltepan Viewpoint</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalKiltepanViewpoint">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalKiltepanViewpoint" tabindex="-1" aria-labelledby="modalKiltepanViewpointLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalKiltepanViewpointLabel">Kiltepan Viewpoint</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Kiltepan view point.jpg" class="img-fluid mb-3" alt="Kiltepan Viewpoint">
+                            <p><strong>Location:</strong> Sagada</p>
+                            <p><strong>Information: </strong>Kiltepan Viewpoint is a popular tourist spot 
+                                famous for its breathtaking sunrise views overlooking sea-of-clouds,
+                                 rolling hills, and distant mountain ranges. It is easily accessible
+                                  by road and is a favorite place for early-morning visits, photography,
+                                   and enjoying the cool mountain atmosphere.</p>
+                            <h2>Visiting Kiltepan (2026)</h2>
+                                <p>November to February: Peak season for the "sea of clouds" due to colder temperatures creating perfect conditions.
+Dry Season (March - May): Good for sunny, clear views, although the sea of clouds is less guaranteed.
+Post-Rain: Visiting the day after a rain shower can result in an incredible, dense sea of clouds. 
+                            <h2>Tour Rates & Fees</h2>
+                            <p>All visitors must first pay the ₱100 Environmental Fee at the Sagada Tourist Information Center. 
+Entrance Fee: While some areas of the peak have no entry fee, private sites like Pog-o Viewpoint charge ₱50 for day visits and ₱350 for overnight camping.
+Guide & Shuttle: A two-way shuttle service from the town center typically costs around ₱650 per van.
+Tour Packages: Comprehensive sunrise hikes through the Kiltepan Guides Association are available for approximately ₱2,900, including shuttle and guide services. </p>
+                                <h2>Practical Tips</h2>
+                                <p>Dress Warmly: Early morning temperatures can drop to 10°C (50°F) or lower; layering is essential.
+Weekday Visits: Avoid weekends if possible, as the small viewing area can become extremely crowded with up to 300 people on Saturday mornings.
+Local Treats: Small vendors at the viewpoint sell Sagada coffee, mountain tea, and hot champorado (chocolate rice porridge) to keep visitors warm. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Lake Danum -->
+            <div class="col" data-city="Sagada" data-name="Lake Danum">
+                <div class="card h-100">
+                    <img src="images/lake danum.jpg" class="card-img-top spot-img" alt="Lake Danum">
+                    <div class="card-body">
+                        <h5 class="card-title">Lake Danum</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLakeDanum">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalLakeDanum" tabindex="-1" aria-labelledby="modalLakeDanumLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLakeDanumLabel">Lake Danum</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/lake danum.jpg" class="img-fluid mb-3" alt="Lake Danum">
+                            <p><strong>Location:</strong> Sagada</p>
+                            <p><strong>Information: </strong>Lake Danum (Sagada, Mountain Province) is a peaceful natural attraction surrounded by pine trees and mountain scenery, known for its calm atmosphere and reflective waters. It is best visited early in the morning or late afternoon for a quiet nature experience, short walks, and photography.</p>
+                            
+                                <h2>Information for Visitors (2026)</h2>
+                                <p>The Name: "Danum" literally translates to "water" in the Kankanaey dialect.
+Sunset Viewing: Unlike Kiltepan and Marlboro Hills (which are sunrise spots), Lake Danum is famous for its late afternoon glow, where the water reflects the orange and pink hues of the sky.
+Activities: It is a popular site for camping, picnics, and light trekking. There is a wide open field nearby where visitors often set up mats to relax.
+Logistics:
+Entrance Fee: Usually included in your one-time ₱100 Environmental Fee receipt.
+Shuttle Fee: A two-way van from the town center costs approximately ₱650 (good for 10 people).
+Travel Time: A 15-minute drive from the town center toward the Besao border. </p>
+                                    <h2>Pro-Tips</h2>
+                                    <p>Temperature: It gets significantly colder here than in the town center due to the open landscape and higher elevation. Bring a heavy jacket if staying for the sunset.
+Mt. Ampacao Trek: Many tourists combine a visit here with a hike to Mt. Ampacao (the highest peak in Sagada), ending the trek at Lake Danum just in time for the sun to go down. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blue Soil Hills -->
+            <div class="col" data-city="Sagada" data-name="Blue Soil Hills">
+                <div class="card h-100">
+                    <img src="images/Blue soil.jpg" class="card-img-top spot-img" alt="Blue Soil Hills">
+                    <div class="card-body">
+                        <h5 class="card-title">Blue Soil Hills</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBlueSoilHills">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalBlueSoilHills" tabindex="-1" aria-labelledby="modalBlueSoilHillsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBlueSoilHillsLabel">Blue Soil Hills</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Blue soil.jpg" class="img-fluid mb-3" alt="Blue Soil Hills">
+                            <p><strong>Location:</strong> Sagada</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>History & Geology</h2>
+                            <p>Chemical Composition: The unique blue-green color is not caused by dye or paint, but by high concentrations of copper sulfate (vitriol) and other minerals in the soil. When these minerals react with moisture and air, they turn the clay into various shades of blue and teal Guide to the Philippines.
+Geological Timeline: These hills are part of the ancient seabed that rose over millions of years. Similar to other parts of Sagada, fossils are occasionally found in the surrounding limestone areas Visit Sagada.
+Indigenous Connection: For generations, the area was simply part of the ancestral grazing lands for the people of Barangay Dagdag and Kanip-aw. It only transitioned into a "tourist attraction" in the late 2000s as hikers discovered its surreal, "otherworldly" aesthetic.</p>
+                                <h2>Essential Visitor Information (2026)</h2>
+                                <p>Access: It is rarely visited alone. Most tourists take the Marlboro Hills to Blue Soil Traverse, a 4–5 hour trek that begins at 4:00 AM for the sunrise Sagada Tourism Office.
+Tour Fees:
+Traverse Guide Fee: ₱1,600 for a group of up to 3 people.
+Shuttle Fee: ₱650 for a two-way transfer from the town center.
+Environmental Fee: You must present your ₱100 registration receipt from the municipal tourism office.</p>
+                                    <h2>Strict Rules for Preservation</h2>
+                                    <p>No Walking on the Slopes: Visitors are strictly prohibited from stepping on the blue soil itself to prevent erosion and discoloration. You must stay on the designated brown-soil paths.
+No Collecting: Taking even a small amount of soil as a souvenir is a punishable offense under local environmental laws.
+Littering: As a sacred ancestral zone, "Leave No Trace" principles are strictly enforced.</p>
+                                        <h2>Best Time to Visit</h2>
+                                        <p>The colors are most vibrant after a light rain when the soil is damp, or during the golden hour (shortly after sunrise) when the contrast between the blue earth and green pine trees is most dramatic.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Balangagan Cave -->
+            <div class="col" data-city="Sagada" data-name="Balangagan Cave">
+                <div class="card h-100">
+                    <img src="images/balangagan cave.jpg" class="card-img-top spot-img" alt="Balangagan Cave">
+                    <div class="card-body">
+                        <h5 class="card-title">Balangagan Cave</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBalangaganCave">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalBalangaganCave" tabindex="-1" aria-labelledby="modalBalangaganCaveLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBalangaganCaveLabel">Balangagan Cave</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/balangagan cave.jpg" class="img-fluid mb-3" alt="Balangagan Cave">
+                            <p><strong>Location:</strong> Sagada</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>History and Lore</h2>
+                                <p>The Legend of the Name: The name "Balangagan" is a portmanteau of three tribal elders—Bangcawayan, Lawagan, and Nagayang. According to local legend, these three men were hunting for bats inside the cave when a spirit voice (timmek) commanded them to release their catch or remain trapped. They obeyed and safely returned to tell the story.
+Sacred Burial Site: During the 18th and 19th centuries, the cave served as a major burial ground for ancestors from the southern barangays. Unlike other sites, Balangagan features burial jars in addition to traditional wooden coffins, some of which are perched high on limestone ledges.
+WWII Shelter: During World War II, the cave was a critical refuge for locals hiding from Japanese invaders, effectively serving as an underground evacuation site.
+Marcos Era: In the 1980s, attempts were made to rename it "Marcos Cave" to attract tourism development, with chambers named after Ferdinand and Imelda Marcos. This was rejected by the local community, who reclaimed the original name. </p>
+                                    <h2>Visitor Information (2026)</h2>
+                                    <p>Unique Formations: The cave is famous for its crystal-white limestone and "chandelier-type" stalactites. Popular formations include the "Prince and Princess," the "Garden," and the "Whale's Tail".
+Logistics & Fees:
+Operating Hours: Daily from 8:00 AM to 4:00 PM.
+Guide Fee: ₱800 for a group of 1–5 people.
+Shuttle Fee: Approximately ₱850 for a two-way van from the town center.
+Capacity Limit: To prevent damage to the white formations, a maximum of 100 people (including 20 guides) are allowed inside at once.
+Spelunking Experience: The tour takes about 2.5 to 3 hours. It is generally considered beginner-friendly but involves slippery terrain and narrow passages. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bokong Falls -->
+            <div class="col" data-city="Sagada" data-name="Bokong Falls">
+                <div class="card h-100">
+                    <img src="images/bkong falls.jpg" class="card-img-top spot-img" alt="Bokong Falls">
+                    <div class="card-body">
+                        <h5 class="card-title">Bokong Falls (Small Falls)</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBokongFalls">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalBokongFalls" tabindex="-1" aria-labelledby="modalBokongFallsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBokongFallsLabel">Bokong Falls (Small Falls)</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/bkong falls.jpg" class="img-fluid mb-3" alt="Bokong Falls">
+                            <p><strong>Location:</strong> Sagada</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>History & Cultural Context</h2>
+                            <p>Agricultural Roots: Historically, Bokong was not a tourist site but a critical water source for the surrounding rice terraces. The trail used today was originally carved by local farmers to access their crops and manage irrigation.
+Ancestral Respite: For the Kankanaey people, the falls served as an "unconscious respite"—a place where farmers and hunters would wash off after a day's work in the fields or mountains.
+The "Small Make-Do": Its name and reputation reflect its historical status as a modest, "everyday" site compared to the more "mystical" and remote burial caves or higher peaks. It remains a symbol of the daily life of Sagadans where carabaos graze nearby while tourists visit.</p>
+                                <h2>Key Information (2026)</h2>
+                                <p>The Experience: The falls stand about 20 feet high and flow into a deep, natural pool. It is a favorite spot for cliff jumping (approx. 6 meters high) and refreshing dips, as the water is notably less cold than other falls in the region.
+Accessibility: Located near the Sagada Weaving Center, the trail winds through lush rice terraces and pine forests.
+Logistics & Fees:
+Entrance Fee: Typically free if visited independently, though a small fee may apply if part of the Paytokan Walking Tour.
+Guide Status: One of the few sites in Sagada where a guide is not strictly mandatory for those staying on the main path, though highly recommended for beginners.
+Transport: A shuttle from the town center costs approximately ₱400 for a group of 10.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section><h2>Sagada Emergency Contact Information:</h2><br>
+        Sagada Police Station: +63 908 225 8115 <br>
+Sagada Fire Station (BFP): 0963-734-5686 <BR>
+Sagada Emergency Response Team: +63 906 822 0044 / +63 999 994 3282 <br>
+St. Theodore Hospital (Sagada): +63 917 629 6084 <br> 
+Mountain Province Police Provincial Office: 0998-598-7832 <br> 
+Provincial Disaster Risk Reduction & Management Office (PDRRMO): 0920-946-3373</section> <br>
+
+        <!-- Bontoc -->
+        <h2>Bontoc</h2>
+
+                <!-- Municipality Description -->
+        <div class="municipality-description mt-4 mb-4">
+            <p>Bontoc is the capital town of Mountain Province, known for its rich indigenous culture and historical significance. The Bontoc people, part of the Igorot ethnic group, have preserved traditional practices like headhunting lore and intricate weaving. The town serves as a cultural hub, featuring museums and festivals that celebrate ancestral heritage and sustainable living amidst terraced landscapes.</p>
+        </div>
+        <section>
+         Bontoc Municipal Tourism Office: <br> 
+         09291270892: <br>
+          09215591520: <br>
+           email lgubontoc@gmail.com</section><br>
+
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Bontoc Museum -->
+            <div class="col" data-city="Bontoc" data-name="Bontoc Museum">
+                <div class="card h-100">
+                    <img src="images/Bontoc museum.jfif" class="card-img-top spot-img" alt="Bontoc Museum">
+                    <div class="card-body">
+                        <h5 class="card-title">Bontoc Museum</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBontocMuseum">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalBontocMuseum" tabindex="-1" aria-labelledby="modalBontocMuseumLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBontocMuseumLabel">Bontoc Museum</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Bontoc museum.jfif" class="img-fluid mb-3" alt="Bontoc Museum">
+                            <p><strong>Location:</strong> Bontoc</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>History of the Museum</h2>
+                            <p>The museum was founded in 1975 by Sister Catherine Lambrecht, a Belgian nun from the Congregatio Immaculati Cordis Mariae (CICM). Her goal was to preserve the indigenous heritage that was rapidly changing due to modern influence. 
+The Building: The museum is part of the Saint Vincent’s Elementary School compound.
+The Collection: It features an extensive collection of black-and-white photographs by early 20th-century ethnographers, showing life in the Cordilleras before the introduction of Western technology. </p>
+                                <h2>Key Exhibits & Information (2026)</h2>
+                                <p><h1>The Indoor Gallery:</h1>
+Warrior Artifacts: Traditional headhunting axes, shields, and spears used by the Bontoc and Kalinga tribes.
+Textiles and Weaving: Displays of the lufid (wrap-around skirts) and intricate back-strap looms.
+Headhunting Lore: Documentation of the ancient practice of headhunting, including the rituals and tattoos (chaklag) associated with it. <br>
+<h1>The Outdoor Museum (Heritage Village):</h1>
+This is the museum’s highlight. It features authentic reconstructions of traditional Bontoc houses, including the ato (a council house for men) and the ulog (a dormitory for young unmarried women).Operating Hours: Daily from 8:00 AM – 12:00 PM and 1:00 PM – 5:00 PM.
+Entrance Fee: Approximately ₱100 per person.</p>
+                                    <h2>Practical Tips</h2>
+                                    <p>Location: It is easily accessible by public jeepney or bus from Sagada (approx. ₱50–₱70 fare).
+No Photography Indoors: While you can take photos in the outdoor heritage village, photography is strictly prohibited inside the galleries to protect the artifacts and respect the subjects of the historical photos.
+Souvenir Shop: The museum has a small shop selling high-quality, authentic Bontoc weaves and books on Cordilleran history. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Maligcong Rice Terraces -->
+            <div class="col" data-city="Bontoc" data-name="Maligcong Rice Terraces">
+                <div class="card h-100">
+                    <img src="images/Maligcong_Rice_Terraces.jpg" class="card-img-top spot-img" alt="Maligcong Rice Terraces">
+                    <div class="card-body">
+                        <h5 class="card-title">Maligcong Rice Terraces</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMaligcongRiceTerraces">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalMaligcongRiceTerraces" tabindex="-1" aria-labelledby="modalMaligcongRiceTerracesLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMaligcongRiceTerracesLabel">Maligcong Rice Terraces</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Maligcong_Rice_Terraces.jpg" class="img-fluid mb-3" alt="Maligcong Rice Terraces">
+                            <p><strong>Location:</strong> Bontoc</p>
+                            <p><strong>Information:</strong> </p>
+                            <h2>History and Cultural Significance</h2>
+                            <p>Stone-Walling (Kallit): Historically, the people of Maligcong used a unique dry-stone walling technique without mortar. This was a response to the steep, rocky terrain, making these terraces more resistant to erosion than those made primarily of earth.
+Ancestral Engineering: These terraces were hand-carved by the Bontoc people generations ago. Every stone was carried by hand from the nearby riverbeds and mountainsides.
+Traditional Farming: The community still practices traditional organic rice farming. The cycles of the terraces—from the reflective water-filled ponds in January to the lush green in April and golden harvest in June—dictate the village's cultural rituals and festivals.
+Preservation: In recent years, Maligcong has resisted major commercial development to preserve its "quiet" atmosphere. The Bontoc Tourism Office strictly regulates homestays to ensure the village remains sustainable. </p>
+                                <h2>Information for Visitors (2026)</h2>
+                                <p>The View: Unlike the mud-walled terraces of Banaue, Maligcong features stone-walled terraces that have stood for centuries. The best viewpoint is from the summit of Mt. Kupapey, which offers a "birds-eye" view of the entire valley.
+Logistics:
+Jump-off Point: Barangay Maligcong, accessible via a 30-minute jeepney ride from Bontoc town center.
+Guide Fee: ₱500 for a group (up to 5 people) for the Mt. Kupapey trek.
+Registration Fee: ₱50 per person at the local tourism office.
+The Trek: The hike to Mt. Kupapey takes about 1.5 to 2 hours. Most visitors start at 4:30 AM to catch the sunrise and the famous sea of clouds over the terraces. </p>
+                                    <h2>Pro-Tips</h2>
+                                    <p>Stay Overnight: To catch the sunrise, it is best to stay in a Maligcong homestay (like Chen's or Suzette's) the night before.
+Pack Out: There are no trash bins on the mountain trails. Be prepared to carry all your waste back to the village. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mount Kupapey -->
+            <div class="col" data-city="Bontoc" data-name="Mount Kupapey">
+                <div class="card h-100">
+                    <img src="images/mt-kupapey-travel-guide.jpg" class="card-img-top spot-img" alt="Mount Kupapey">
+                    <div class="card-body">
+                        <h5 class="card-title">Mount Kupapey</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMountKupapey">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalMountKupapey" tabindex="-1" aria-labelledby="modalMountKupapeyLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMountKupapeyLabel">Mount Kupapey</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/mt-kupapey-travel-guide.jpg" class="img-fluid mb-3" alt="Mount Kupapey">
+                            <p><strong>Location:</strong> Bontoc</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>History & Cultural Context</h2>
+                            <p>Spiritual Name: "Kupapey" is derived from a local term referring to a type of butterfly or moth that was historically abundant on the mountain. In local folklore, butterflies are often seen as messengers from the spirit world.
+Ancestral Hunting Grounds: Long before it became a tourist trail, Mt. Kupapey served as communal hunting grounds and a source of firewood for the people of Barangay Maligcong.
+The Stone-Walled View: From the top, you can see the historical evolution of the terraces. The stone-walled technique (distinct from the mud-walls of Banaue) was a historical adaptation to the rocky terrain of Bontoc, ensuring the structures survived for centuries.
+Conservation: The trail remains largely natural and is maintained by the local community. There is a strong emphasis on the "Leave No Trace" policy to protect the pine forest and the village's water source.
+</p>
+                            <h2>Key Information (2026)</h2>
+                            <p>The Experience: The summit offers a breathtaking 360-degree view. To the east, you see the stone-walled Maligcong Rice Terraces; to the west, the winding Chico River and the jagged peaks of the Cordillera Mountains.
+The Trek:
+Difficulty: Easy to Moderate. The trail is mostly a gradual ascent through a pine forest.
+Duration: Approximately 1 to 1.5 hours from the village to the summit.
+Starting Point: Most hikers stay in Maligcong homestays and start their trek at 4:30 AM to catch the sunrise.</p>
+                                <h2>Pro-Tips</h2>
+                                <p>The "Sea of Clouds": This phenomenon is most common during the colder months (December to February).
+Mt. Fato Traverse: For a longer adventure, many hikers combine Mt. Kupapey with Mt. Fato (the "Stone Mountain") in a single morning traverse.
+Homestays: You must coordinate with your homestay owner the night before to ensure a guide is ready for your early morning departure.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Alab Petroglyphs -->
+            <div class="col" data-city="Bontoc" data-name="Alab Petroglyphs">
+                <div class="card h-100">
+                    <img src="images/petrolglyph.jpg" class="card-img-top spot-img" alt="Alab Petroglyphs">
+                    <div class="card-body">
+                        <h5 class="card-title">Alab Petroglyphs</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAlabPetroglyphs">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalAlabPetroglyphs" tabindex="-1" aria-labelledby="modalAlabPetroglyphsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalAlabPetroglyphsLabel">Alab Petroglyphs</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/petrolglyph.jpg" class="img-fluid mb-3" alt="Alab Petroglyphs">
+                            <p><strong>Location:</strong> Bontoc</p>
+                            <p><strong>Information:</strong> The Alab Petroglyphs are ancient rock carvings believed to be over a thousand years old, depicting human and animal figures. They are a National Cultural Treasure of the Philippines.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section><h2>Bontoc Emergency Contact Information:</h2> <br>
+        MDRRMO (Municipal Disaster Risk Reduction and Management Office): 0960-584-3280 / 0936-859-4183 <br>
+Bontoc Municipal Police Station: 0998-598-7835 <br>
+Bontoc Fire Station: 0949-905-4568 / 0927-986-7350 <br>
+Bontoc Emergency Response Team (ERT): 0922-830-3587 / 0921-734-7839 <br>
+Bontoc General Hospital: 0929-218-5345 / 0966-203-4751 <br>
+Municipal Health Office (MHO): 0960-583-1333</section> <br>
+
+        <!-- Barlig -->
+        <h2>Barlig</h2>
+
+                <!-- Municipality Description -->
+        <div class="municipality-description mt-4 mb-4">
+            <p>Barlig is a remote municipality in Mountain Province, known for its challenging terrains and pristine natural landscapes. The Barlig people maintain traditional Igorot customs, focusing on sustainable agriculture and community-based tourism. The area features ancient rice terraces and high-altitude mountains, offering opportunities for adventure seekers while preserving indigenous heritage.</p>
+        </div>
+        <section>Barlig tourism contact information: <br>
+        barligtourismoffice24@gmail.com </section><br>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Mount Amuyao -->
+            <div class="col" data-city="Barlig" data-name="Mount Amuyao">
+                <div class="card h-100">
+                    <img src="images/Amuyao knife edge.jpg" class="card-img-top spot-img" alt="Mount Amuyao">
+                    <div class="card-body">
+                        <h5 class="card-title">Mount Amuyao</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMountAmuyao">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalMountAmuyao" tabindex="-1" aria-labelledby="modalMountAmuyaoLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMountAmuyaoLabel">Mount Amuyao</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Amuyao knife edge.jpg" class="img-fluid mb-3" alt="Mount Amuyao">
+                            <p><strong>Location:</strong> Barlig</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>The Trek & Experience</h2>
+                            <p>The trek to Mount Amuyao via the Barlig Trail starts at the designated jump-off point in Barlig, 
+                                Mountain Province. The trail is known for its long and continuous concrete and stone stairways, 
+                                often referred to as the “Infinite Stairway,” which makes the climb physically demanding despite 
+                                the clear path. The difficulty is rated 8 out of 9, classifying it as a major climb that requires 
+                                strong leg endurance. Along the way, hikers pass through rice terraces, pine forests, 
+                                and mossy forest sections near the summit. On clear days, the summit offers wide views of Mt. Pulag,
+                                 Mt. Napulauan, the Kalinga mountain ranges, and a dramatic sea of clouds. Temperatures at the peak
+                                  can drop to 9°C or lower, especially during the night and early morning, and basic shelter 
+                                  is available near the summit due to nearby telecommunication facilities. </p>
+                            <h2>Essential Trail Information (2026)</h2>
+                            <p>All climbers must register at the Barlig Municipal Tourism Office prior to the ascent.
+                                 A valid medical certificate is strictly required before permits are issued.
+                                  Guide fees are set at ₱2,000 for a day hike and ₱2,500 for overnight climbs,
+                                   with a maximum of five hikers per group. Reaching the summit typically takes 5 to 7 hours,
+                                    and the climb is commonly completed as a 2-day, 1-night backtrail or a 3-day traverse,
+                                     depending on route approval and weather conditions.</p>
+                            <h2>Essential Visitor Tips</h2>
+                            <p>Visitors are advised to wear proper hiking shoes with excellent grip,
+                                 as the concrete steps can become slippery during rain.
+                                  Layered clothing is recommended, including a thermal layer and a windproof or rain jacket,
+                                   due to cold and rapidly changing weather at higher elevations.
+                                    Bringing at least 2 to 3 liters of water, energy snacks, a headlamp,
+                                    extra socks, and personal medication is highly recommended. For overnight hikes,
+                                    a sleeping bag and cold-weather gear are essential. Hikers should start early in the day
+                                    to avoid afternoon fog and rainfall and should always follow their assigned guide for safety.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <!-- Barlig Rice Terraces -->
+            <div class="col" data-city="Barlig" data-name="Barlig Rice Terraces">
+                <div class="card h-100">
+                    <img src="images/barlig rice terraces.jpg" class="card-img-top spot-img" alt="Barlig Rice Terraces">
+                    <div class="card-body">
+                        <h5 class="card-title">Barlig Rice Terraces</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBarligRiceTerraces">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalBarligRiceTerraces" tabindex="-1" aria-labelledby="modalBarligRiceTerracesLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBarligRiceTerracesLabel">Barlig Rice Terraces</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/barlig rice terraces.jpg" class="img-fluid mb-3" alt="Barlig Rice Terraces">
+                            <p><strong>Location:</strong> Barlig</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>The Trek & Experience</h2>
+                            <p>
+                                The Barlig Rice Terraces are located along the mountain slopes of Barlig, Mountain Province,
+                                 and are easily accessible from the town proper. Visitors can explore the terraces through
+                                  short walks along village paths and farm trails that pass beside flowing irrigation channels
+                                   and panoramic mountain views. The terrain is generally easy to moderate, making it suitable
+                                    for casual walking, sightseeing, and photography. The terraces are especially scenic in
+                                     the early morning and late afternoon when the sunlight highlights the layered fields
+                                      and surrounding mountains.</p>
+                                <h2>Current Fees & Logistics (2026)</h2>
+                            <p>
+                                Visitors are required to register at the Barlig Municipal
+                                 Tourism Office before visiting the rice terraces, especially
+                                  if accompanied by a guide. There is no fixed entrance fee for
+                                   most viewing areas, but a local guide fee may apply depending
+                                    on the route and duration of the visit. Short guided walks typically
+                                     cost around ₱500–₱1,000 per group, depending on arrangements.
+                                      Travel time from the town center to most terrace viewing points
+                                       ranges from 10 to 30 minutes, either by foot or short vehicle ride.
+                            </p>
+                            <h2>Pro-Tips for Barlig</h2>
+                                <p>Homestays Only: There are no luxury hotels here. You will stay in local homestays where you eat what the family eats.
+                                Best Time to Visit: April to May is when the terraces are at their greenest. The harvest season in June/July is also a great time to see traditional communal harvesting rituals.
+                                Connectivity: Be prepared for a total digital detox. Mobile signal and internet are extremely weak or non-existent once you leave the main town center.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section><h2>Barlig Emergency Contact Information:</h2> <br>
+        Barlig MDRRM Office: 0915-660-8870 <BR>
+Barlig Municipal Police Station: 0995-538-3570 <br>
+Barlig Fire Station: 0927-043-3805 <br>
+Barlig District Hospital: 0905-813-9502 <br>
+Municipal Health Office: 0926-224-5300 </section> <br>
+
+        <!-- Sadanga -->
+        <h2 class="mt-5">Sadanga</h2>
+
+                <!-- Municipality Description -->
+        <div class="municipality-description mt-4 mb-4">
+            <p>Sadanga is a municipality in Mountain Province renowned for its stunning rice terraces, natural hot springs, and ancient caves. The Sadanga people, part of the Igorot ethnic group, maintain rich cultural traditions including intricate weaving, communal farming, and spiritual ceremonies honoring nature. The area is known for its sustainable agricultural practices and festivals that celebrate harvest and community bonds.</p>
+        </div>
+        <section>Sadanga Tourist Contact Information: <br>
+         +639771860548 <br> +639394677863</section><br>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Fowa-as Falls -->
+            <div class="col" data-city="Sadanga" data-name="Fowa-as Falls">
+                <div class="card h-100">
+                    <img src="images/Fowa-as.jpg" class="card-img-top spot-img" alt="Fowa-as Falls">
+                    <div class="card-body">
+                        <h5 class="card-title">Fowa-as Falls</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFowaasFalls">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalFowaasFalls" tabindex="-1" aria-labelledby="modalFowaasFallsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalFowaasFallsLabel">Fowa-as Falls</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Fowa-as.jpg" class="img-fluid mb-3" alt="Fowa-as Falls">
+                            <p><strong>Location:</strong> Sadanga</p>
+                            <p><strong>Information:</strong> Fowa-as Falls is a hidden gem, accessible via a trek through lush forests and rice terraces. The falls are a source of irrigation and are considered sacred by the local community.</p>
+                            <p><strong>Trek Difficulty:</strong> Moderate, approximately 2-3 hours hike.</p>
+                            <p><strong>Best Time to Visit:</strong> During rainy season when water flow is strongest.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bokong Rice Terraces -->
+            <div class="col" data-city="Sadanga" data-name="Bokong Rice Terraces">
+                <div class="card h-100">
+                    <img src="images/Bokong.jpg" class="card-img-top spot-img" alt="Bokong Rice Terraces">
+                    <div class="card-body">
+                        <h5 class="card-title">Bokong Rice Terraces</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBokongRiceTerraces">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalBokongRiceTerraces" tabindex="-1" aria-labelledby="modalBokongRiceTerracesLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBokongRiceTerracesLabel">Bokong Rice Terraces</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Bokong.jpg" class="img-fluid mb-3" alt="Bokong Rice Terraces">
+                            <p><strong>Location:</strong> Sadanga</p>
+                            <p><strong>Information:</strong> These terraces are among the oldest in the province, built by hand over generations. They are a symbol of the Sadanga people's harmonious relationship with nature.</p>
+                            <p><strong>Construction:</strong> Built using traditional stone-walling techniques.</p>
+                            <p><strong>Cultural Significance:</strong> Represents centuries of agricultural tradition.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maatong Hot Spring -->
+            <div class="col" data-city="Sadanga" data-name="Maatong Hot Spring">
+                <div class="card h-100">
+                    <img src="images/Maatong.jpg" class="card-img-top spot-img" alt="Maatong Hot Spring">
+                    <div class="card-body">
+                        <h5 class="card-title">Maatong Hot Spring</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMaatongHotSpring">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalMaatongHotSpring" tabindex="-1" aria-labelledby="modalMaatongHotSpringLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMaatongHotSpringLabel">Maatong Hot Spring</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Maatong.jpg" class="img-fluid mb-3" alt="Maatong Hot Spring">
+                            <p><strong>Location:</strong> Sadanga</p>
+                            <p><strong>Information:</strong> Maatong Hot Spring is a natural thermal spring known for its therapeutic properties. The warm mineral-rich waters are perfect for relaxation after trekking.</p>
+                            <p><strong>Temperature:</strong> Naturally warm throughout the year.</p>
+                            <p><strong>Therapeutic Benefits:</strong> Believed to help with muscle pain and skin conditions.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row for Sadanga -->
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-0">
+            <!-- Nabenngan Bridge -->
+            <div class="col" data-city="Sadanga" data-name="Nabenngan Bridge">
+                <div class="card h-100">
+                    <img src="images/Nabenngan.jpg" class="card-img-top spot-img" alt="Nabenngan Bridge">
+                    <div class="card-body">
+                        <h5 class="card-title">Nabenngan Bridge</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNabennganBridge">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalNabennganBridge" tabindex="-1" aria-labelledby="modalNabennganBridgeLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalNabennganBridgeLabel">Nabenngan Bridge</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Nabenngan.jpg" class="img-fluid mb-3" alt="Nabenngan Bridge">
+                            <p><strong>Location:</strong> Sadanga</p>
+                            <p><strong>Information:</strong> Nabenngan Bridge is a traditional hanging bridge made from native materials. It connects communities and offers scenic views of the river and surrounding rice terraces.</p>
+                            <p><strong>Construction:</strong> Built using traditional methods with bamboo and rattan.</p>
+                            <p><strong>Cultural Significance:</strong> Symbol of community cooperation and traditional engineering.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Belwang Rice Terraces -->
+            <div class="col" data-city="Sadanga" data-name="Belwang Rice Terraces">
+                <div class="card h-100">
+                    <img src="images/belwang rice terraces.jpg" class="card-img-top spot-img" alt="Belwang Rice Terraces">
+                    <div class="card-body">
+                        <h5 class="card-title">Belwang Rice Terraces</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBelwangRiceTerraces">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalBelwangRiceTerraces" tabindex="-1" aria-labelledby="modalBelwangRiceTerracesLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBelwangRiceTerracesLabel">Belwang Rice Terraces</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/belwang rice terraces.jpg" class="img-fluid mb-3" alt="Belwang Rice Terraces">
+                            <p><strong>Location:</strong> Sadanga</p>
+                            <p><strong>Information:</strong> Belwang Rice Terraces are a scenic agricultural site featuring traditional rice cultivation methods. The terraces offer breathtaking views of the surrounding landscape and are an important cultural and historical landmark.</p>
+                            <p><strong>Construction:</strong> Built using traditional farming techniques over generations.</p>
+                            <p><strong>Cultural Significance:</strong> Represents the ingenuity and sustainable practices of local communities.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    <!-- Angoten Cave -->
+            <div class="col" data-city="Sadanga" data-name="Angoten Cave">
+                <div class="card h-100">
+                    <img src="images/Angoten.jpg" class="card-img-top spot-img" alt="Angoten Cave">
+                    <div class="card-body">
+                        <h5 class="card-title">Angoten Cave</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAngotenCave">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalAngotenCave" tabindex="-1" aria-labelledby="modalAngotenCaveLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalAngotenCaveLabel">Angoten Cave</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Angoten.jpg" class="img-fluid mb-3" alt="Angoten Cave">
+                            <p><strong>Location:</strong> Sadanga</p>
+                            <p><strong>Information:</strong> Angoten Cave is a natural limestone cave known for its unique rock formations and historical significance. It is a popular destination for tourists and locals alike.</p>
+                            <p><strong>Construction:</strong> Naturally formed over thousands of years.</p>
+                            <p><strong>Cultural Significance:</strong> Holds historical and spiritual importance for local communities.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section><h2>Sadanga Emergency Contact Information:</h2><br>
+        Sadanga Municipal Police Station (MPS): 0998-598-7839 <br>
+MDRRMO (EOC) - Cristy Carmelaine C. Pitok: 0927-043-8412 <br>
+BFP Sadanga (Fire): 0927-080-6071 (SFO3 Nestor S. Batollog) <br>
+PNP-PMFC (Tabrak): 0945-715-5293 (PCAPT Jun P. Ngawit) <br>
+PNP Chief of Police: 0998-967-4395 (PCAPT Nestor B. Puguon) <br>
+Mountain Province Police Provincial Office: 0998-598-7832 <br>
+Provincial Disaster Risk Reduction & Management Office: 0920-946-3373</section> <br>
+
+        <!-- Bauko -->
+        <h2>Bauko</h2>
+
+                <!-- Municipality Description -->
+        <div class="municipality-description mt-4 mb-4">
+            <p>Bauko is a municipality in Mountain Province characterized by its rugged mountains, rice terraces, and access to Mount Data National Park. The Bauko people uphold traditional Igorot values, focusing on communal farming, weaving, and spiritual practices that honor their ancestral lands and natural surroundings.</p>
+        </div>
+        <section>Bauko Tourism Contact Information: <br>
+        0910 946 4747 <br>
+        bauko.tourism.official@gmail.com</section><br>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Mount Kalawitan -->
+            <div class="col" data-city="Bauko" data-name="Mount Kalawitan">
+                <div class="card h-100">
+                    <img src="images/mt Kalawitan.jpg" class="card-img-top spot-img" alt="Mount Kalawitan">
+                    <div class="card-body">
+                        <h5 class="card-title">Mount Kalawitan</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMountKalawitan">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalMountKalawitan" tabindex="-1" aria-labelledby="modalMountKalawitanLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMountKalawitanLabel">Mount Kalawitan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/mt Kalawitan.jpg" class="img-fluid mb-3" alt="Mount Kalawitan">
+                            <p><strong>Location:</strong> Bauko</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>History & Cultural Significance</h2>
+                            <p><b>The "To Climb" Origin:</b> The name "Kalawitan" is believed to be derived from the Kankanaey word kalawit, which literally means "to climb". <br>
+                           <b> A Training Ground:</b> Historically, the mountain has been a rigorous training ground for elite mountaineers, including the First Philippine Everest Expedition Team. <br>
+                        <b>Ancestral Domain:</b> The mountain is home to thriving indigenous communities. It is considered a sacred space where hikers can experience traditional food and dances, such as those performed around a bonfire with gongs. <br>
+                   <b> Biodiversity Gem:</b> A biological survey once recorded 59 bird species and 72 species of rare plants within its diverse ecosystems. </p>
+                                <h2>The Hiking Experience</h2>
+                                <p><b>Trail Options:</b>
+Sabangan Trail: The most popular route, starting near the Shell station in Poblacion, Sabangan.
+Talubin/Bayyo Trail: A more challenging route starting from Bontoc, often done as part of a traverse that ends in Sabangan. <br>
+<b>Difficulty:</b> Rated as a Major Climb (7/9 difficulty). The trek is known for its "Monkey Trail"—extremely steep sections where you often have to use your hands—and a heavy population of limatik (leeches). <br>
+<b>Terrain:</b> Hikers pass through three distinct zones: the Asoan Pine Forest, a thick mossy forest (often called "mystical"), and a summit landmark made of dwarf bamboo. </p>
+</div>
+                        <h2>Visitor Logistics (2026)</h2>
+                        <p><b>Duration:</b> Typically a 2-day/1-night expedition, with 10–15 hours of total trekking time. <br>
+                        <b>Costs:</b>
+                        Guide Fees: Part of organized packages ranging from ₱2,650 to ₱5,700 per person.
+                        Permits: Mandatory registration and climb permits are required through the local tourism offices of Sabangan or Bontoc. <br>
+                        <b>Best Time:</b> Open year-round, but December to February offers the coldest temperatures and the highest chance of seeing a sea of clouds. </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mount Polis -->
+            <div class="col" data-city="Bauko" data-name="Mount Polis">
+                <div class="card h-100">
+                    <img src="images/mt.polis.jpg" class="card-img-top spot-img" alt="Mount Polis">
+                    <div class="card-body">
+                        <h5 class="card-title">Mount Polis</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMountPolis">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalMountPolis" tabindex="-1" aria-labelledby="modalMountPolisLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMountPolisLabel">Mount Polis</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/mt.polis.jpg" class="img-fluid mb-3" alt="Mount Polis">
+                            <p><strong>Location:</strong> Bauko</p>
+                            <p><strong>Information:</strong></p>
+                                <h2>Historical Significance</h2>
+                                <p><b>Strategic World War II Site:</b> Mount Polis was a critical defensive position during the Battle of the Cordilleras in 1945. It was one of the last strongholds of the Japanese Imperial Army under General Tomoyuki Yamashita as they retreated into the deeper mountains. <br>
+                                <b>The Ancient Gateway:</b> For centuries, it has served as the primary transit point for indigenous groups. The Halsema Highway pass at Mt. Polis is historically one of the highest points of the Philippine highway system. <br>
+                                    <b>Communications Landmark:</b> Similar to Mt. Amuyao, the summit has historically hosted telecommunications relays due to its commanding elevation over the surrounding valleys. </p>
+                                    <h2>Visitor Information (2026)</h2>
+                                        <p><b>The Viewpoint:</b> Most travelers experience Mt. Polis as a stopover point on the bus/jeepney route between Banaue and Bontoc. On clear days, you can see the Bayyo Rice Terraces and the distant peaks of the Cordilleras. <br>
+                                        <b>Climate:</b> It is famously one of the coldest spots on the road. Even at midday, temperatures are significantly lower than in the valleys below. It is frequently engulfed in thick fog or "zero visibility" clouds. <br>
+                                            <b>The Hike:Difficulty:</b> Easy to Moderate (mostly a trek through mossy forests).
+                                            Time: 1–2 hours to reach the actual summit from the highway pass. <br>
+                                       <b> Amenities:</b> There are small roadside stalls at the pass selling hot mountain coffee, snacks, and locally harvested vegetables. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mount Data National Park -->
+            <div class="col" data-city="Bauko" data-name="Mount Data National Park">
+                <div class="card h-100">
+                    <img src="images/Mt. Data.jpg" class="card-img-top spot-img" alt="Mount Data National Park">
+                    <div class="card-body">
+                        <h5 class="card-title">Mount Data National Park</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMountData">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalMountData" tabindex="-1" aria-labelledby="modalMountDataLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMountDataLabel">Mount Data National Park</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Mt. Data.jpg" class="img-fluid mb-3" alt="Mount Data National Park">
+                            <p><strong>Location:</strong> Bauko</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>History & Cultural Significance</h2>
+                            <p><b>Establishment (1936-1940): </b>Originally declared the "Baguio-Bontoc Scenic Park" in 1936, it was renamed and expanded to 5,512 hectares as Mt. Data National Park in 1940.<br>
+                            <b>The Mount Data Peace Accord (1986):</b> The park’s most historic event occurred on September 13, 1986, at the Mt. Data Hotel. Known as the Sipat, it was a peace agreement between the Philippine government (under President Corazon Aquino) and the Cordillera People’s Liberation Army (led by Fr. Conrado Balweg). This accord was a major step toward the creation of the Cordillera Administrative Region (CAR). <br>
+                           <b> Biological Discovery:</b> In 1895, English explorer John Whitehead discovered several rare mammal and bird species here, including the Greater Dwarf Cloud Rat (Carpomys melanurus), which was long thought to be extinct before being rediscovered in later decades. </p>
+                                <h2>Key Visitor Information (2026)</h2>
+                                <p><b>Mt. Data Hotel:</b> This historic lodge serves as the park’s main gateway and visitor center. After undergoing extensive renovations, it reopened in 2022 and remains a primary stay for tourists.<br>
+                               <b> Attractions:</b>Mossy & Pine Forests: The park features high-altitude ecosystems, though much of the original forest has been converted into commercial vegetable farms. <br>
+Inudey & Ampasit Falls: Beautiful cascades located within the vicinity. <br> Hiking Trails: There are several eco-trails around the hotel and the plateau, though hikers often use it as a rest stop before continuing to Sagada or Banaue. <br>
+                                <b>Conservation Status:</b> The park is currently under strict monitoring by the Protected Area Management Board (PAMB) to restore its biodiversity and protect the remaining watershed from agricultural encroachment. </p>
+                                <h2>Pro-Tips</h2>
+                                <p><b>Acoustics & Peace:</b> Visit the Inner Peace Sanctum, an art installation in front of the hotel that commemorates the 1986 peace pact with a monument featuring surrendered firearms embedded in its base.<br>
+                                <b>Climate:</b> Like much of the Cordillera highlands, it is extremely cold at night. Pack heavy layers if staying at the hotel. <br>
+                                <b> Vegetable Shopping:</b> The area surrounding the park is one of the highest vegetable-producing zones in the country; stop by roadside stalls for fresh highland produce at local prices. </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section><H2>Emergency Contact Information: </H2><br>
+        Bauko MDRRMO (Disaster Office): 0922-4068-138 <br>
+PNP Bauko (Police): 0998-5987-833 <br>
+BFP Bauko (Fire): 0907-3402-522</section> <br>
+
+        <!-- Tadian -->
+        <h2>Tadian</h2>
+
+         <!-- Municipality Description -->
+        <div class="municipality-description mt-4 mb-4">
+            <p>Tadian is a municipality in Mountain Province famous for its rice terraces, natural hot springs, and scenic mountain views. The Tadian people, part of the Igorot ethnic group, uphold traditional customs including weaving, communal farming, and spiritual rituals that honor their ancestral lands and promote environmental stewardship.</p>
+        </div>
+        <section>Tadian Tourism Contact Information: <br>
+        Municipal Tourism Officer, Ms. Lybner G. Micklay 09215483356: <br>
+         email: lgutadian@yahoo.com</section><br>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Tadian Rice Terraces -->
+            <div class="col" data-city="Tadian" data-name="Tadian Rice Terraces">
+                <div class="card h-100">
+                    <img src="images/Tadian rice terraces.jpg" class="card-img-top spot-img" alt="Tadian Rice Terraces">
+                    <div class="card-body">
+                        <h5 class="card-title">Tadian Rice Terraces</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTadianRiceTerraces">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalTadianRiceTerraces" tabindex="-1" aria-labelledby="modalTadianRiceTerracesLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTadianRiceTerracesLabel">Tadian Rice Terraces</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/Tadian rice terraces.jpg" class="img-fluid mb-3" alt="Tadian Rice Terraces">
+                            <p><strong>Location:</strong> Tadian</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>History and Cultural Significance</h2>
+                            <p> <b>Legend of the "Holy Water":</b> Tadian is famous for the Cagubatan Holy Water, a natural spring that never runs dry. According to local lore, this water source was a gift to the ancestors, ensuring the terraces remained productive even during severe droughts.<br>
+                            <b>Stone-Walling (Kallit):</b> Like the terraces in Bontoc, Tadian's structures are built using a dry-stone masonry technique. This was a historical necessity due to the steep, rocky slopes of Mt. Mogao and Mt. Clitoris. <br>
+                            <b>The "Kayan" Connection:</b> The nearby village of Kayan in Tadian is historically significant as the site of the first Spanish settlement in the Mountain Province (1668). The terraces in this area were already mature and productive when the Spanish arrived, proving their ancient origin.</p>
+                        <h2>Key Sites & Information (2026)</h2>
+                        <p><b>Dacudac Rice Terraces:</b> Often called the "Amphitheater of Tadian," these terraces are best viewed from the highway. They are particularly beautiful during the watering season (January–February) when they look like giant mirrors.<br>
+                           <b> Cagubatan Terraces:</b> These are unique because they are irrigated by the "Holy Water" spring. The area is lush and stays green longer than other terraces in the province. <br>
+                        <b>Logistics:Access:</b>Tadian is about a 1.5 to 2-hour drive from Sagada or Bontoc via the Suyo-Cervantes road.Registration: Visitors are encouraged to stop at the Tadian Municipal Hall to pay a small environmental fee and coordinate with local guides. <br>
+                    <b>Hidden Gems:</b> Many visitors combine a terrace tour with a visit to Enchanted Falls or a hike up Mt. Mogao. </p>
+                            <h2>Practical Tips</h2>
+                            <p><b>Off-the-Beaten-Path:</b> Unlike Sagada, Tadian lacks large hotels. You will likely stay in simple homestays or travel back to Sagada for the night.<br>
+                                <b>Market Day:</b> If your visit falls on a market day, try the local highland sweet potatoes and heirloom rice, which are famous for their quality in this region. 
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mt. Mogao -->
+            <div class="col" data-city="Tadian" data-name="Mount Mogao">
+                <div class="card h-100">
+                    <img src="images/mt.mogao1.jpg" class="card-img-top spot-img" alt="Mt. Mogao">
+                    <div class="card-body">
+                        <h5 class="card-title">Mt. Mogao</h5>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMtMogao">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalMtMogao" tabindex="-1" aria-labelledby="modalMtMogaoLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMtMogaoLabel">Mt. Mogao</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="images/original_mt. mogao.jpg" class="img-fluid mb-3" alt="Mt. Mogao">
+                            <p><strong>Location:</strong> Tadian</p>
+                            <p><strong>Information:</strong></p>
+                            <h2>History and Cultural Significance</h2>
+                            <p> <b>The "Watching" Peak:</b> Historically, Mt. Mogao served as a strategic lookout point for the indigenous people of Tadian. Its elevation allowed locals to monitor tribal movements and weather patterns affecting their crops below.<br>
+                            <b>Legend of the "Clitoris":</b> The mountain is often associated with the nearby Mt. Clitoris (also known as Mt. Mogao by some locals). This provocative name was given by early cartographers and explorers due to its distinct, pointed shape, but it is deeply respected by locals as a symbol of fertility and the "Mother Mountain" Tadian Municipal Profile. <br>
+                           <b> Sacred Watershed: </b>For centuries, the forests of Mt. Mogao have acted as the primary watershed for the Cagubatan Holy Water, a spring that is central to Tadian's agricultural survival and spiritual identity Province of Mountain Province Official Website. <br>
+                         </p>
+                         <h2>Information for Visitors (2026)</h2>
+                         <p><b>The View:</b> From the summit, you get a 360-degree view of the Dacudac and Cagubatan Rice Terraces. On clear days, you can see as far as the Ilocos coastline and the peaks of Mt. Data.<br>
+                        <b>The Hike:</b>Difficulty: Moderate.It involves a steady ascent through pine forests and open grasslands. <br>
+                        Duration: Approximately 1.5 to 2 hours to reach the summit from the jump-off point in Barangay Poblacion or Dacudac. <br>
+                    <b>Logistics:</b>Registration: Visitors must register at the Tadian Tourism Office located in the Municipal Hall. <br>
+                        Guide Fee: Standard rates are roughly ₱500–₱700 for a small group. <br>
+                   <b> Nearby Attraction:</b> Most hikers pair this with a visit to Enchanted Eel, located at the base of the mountain range. </p>
+                   <h2>Pro-Tips</h2>
+                   <p><b>Golden Hour:</b> The best time for photography is during the late afternoon, as the sun sets over the Ilocos mountains, casting a golden light over the Tadian valleys.<br>
+                   <b> Connectivity:</b> Signal is surprisingly good at the summit compared to the town center, making it a popular spot for locals to "catch a signal." </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section><br> <h2> Emergency Information: </h2> <br>
+            Provincial Disaster Risk Reduction & Management Office (PDRRMO): 09209463373 <br> 
+            Mountain Province Police: 09985987832 <br> 
+            local fire protection: 09072076141</section><br>
+
+
+    </main>
+
+
+
+
+    <footer style="background:#2c3e50; color:#ecf0f1; padding:20px 0; text-align:center; font-size:14px;">
+  <div class="container">
+    <p><strong>Mountain Province Tourist Spots Information System</strong></p>
+    <p>Your guide to Mountain Province tourism.</p>
+
+    <p>
+      📍 Mountain Province Tourism Office, Bontoc<br>
+      📞 (074) 606-9999 | +63 929-127-0892<br>
+      ✉️ tourism@mountprovince.gov.ph
+    </p>
+
+    <p>&copy; 2026 Mountain Province Tourism. All rights reserved.</p>
+  </div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const searchInput = document.getElementById('searchInput');
+const cityFilter = document.getElementById('cityFilter');
+const cards = document.querySelectorAll('.col');
+
+function filterCards() {
+    const searchText = searchInput.value.toLowerCase();
+    const selectedCity = cityFilter.value.toLowerCase();
+
+    cards.forEach(card => {
+        const nameAttr = card.getAttribute('data-name');
+        const cityAttr = card.getAttribute('data-city');
+
+        // ❗ Skip elements that are NOT tourist cards
+        if (!nameAttr || !cityAttr) {
+            return;
+        }
+
+        const name = nameAttr.toLowerCase();
+        const city = cityAttr.toLowerCase();
+
+        const matchesSearch = name.includes(searchText) || searchText === '';
+        const matchesCity = selectedCity === 'all' || city === selectedCity;
+
+        if (matchesSearch && matchesCity) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+searchInput.addEventListener('input', filterCards);
+cityFilter.addEventListener('change', filterCards);
+
+</script>
+
+<a href="interactive map.html" class="btn logout-btn">
+    View Map
+</a>
+
+</html>
